@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: vulnerable_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: vulnerable_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - vulnerable_network
+
+  app:
+    build: .
+    container_name: vulnerable_app
+    ports:
+      - "3002:3001"
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_NAME=vulnerable_db
+    networks:
+      - vulnerable_network
+    volumes:
+      - ./uploads:/app/uploads
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: vulnerable_client
+    ports:
+      - "3003:80"
+    depends_on:
+      - app
+    networks:
+      - vulnerable_network
+
+volumes:
+  mysql_data:
+
+networks:
+  vulnerable_network:
+    driver: bridge
