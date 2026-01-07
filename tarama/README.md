@@ -342,14 +342,7 @@ Bu proje eğitim amaçlıdır. Geliştirme önerileri:
 - ❌ Yasal olmayan amaçlarla kullanmayın
 - ❌ Başkalarının sistemlerine zarar vermeyin
 
-**Sorumluluk Reddi:** Bu aracın kötüye kullanımından kaynaklanan yasal sorumluluk kullanıcıya aittir.
 
-## 📞 İletişim
-
-Sorularınız için:
-- GitHub Issues
-- Pull Request
-- Dokümantasyon
 
 ## 📄 Lisans
 
