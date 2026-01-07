@@ -1,7 +1,6 @@
 # 🔒 Vulnerable Web Application - Eğitim Platformu
 
-⚠️ **UYARI: Bu uygulama kasıtlı güvenlik açıkları içerir!**  
-⚠️ **SADECE EĞİTİM AMAÇLIDIR - PRODUCTION'A DEPLOY ETMEYİN!**
+
 
 ## 📖 İçindekiler
 
